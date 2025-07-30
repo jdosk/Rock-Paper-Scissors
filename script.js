@@ -25,7 +25,7 @@ function playRound(getComputerChoice, getHumanChoice) {
     const humanChoice = getHumanChoice;
     const computerChoice = getComputerChoice;
 
-    console.log("You chose " + humanChoice + " and the computer chose " + computerChoice);
+    console.log("\nYou chose " + humanChoice + " and the computer chose " + computerChoice);
 
     switch (humanChoice) {
         case "paper":
@@ -67,8 +67,23 @@ function playRound(getComputerChoice, getHumanChoice) {
 
 // Function to play a 5 round game
 function playGame() {
-    // TODO
+    let i = 0;
+
+    console.log("Welcome to Rock, Paper, Scissors!\n");
+
+    while (i < 5) {
+        playRound(getComputerChoice(), getHumanChoice());
+        console.log("The current score is\nComputer: " + computerScore +"\nPlayer: " + humanScore);
+        i++;
+    }
+
+    if (computerScore > humanScore) {
+        console.log("Final Score:\nComputer: " + computerScore +"\nPlayer: " + humanScore +"\nGAME OVER - YOU LOSE");
+    } else if (humanScore > computerScore) {
+        console.log("Final Score:\nComputer: " + computerScore +"\nPlayer: " + humanScore +"\nGAME OVER - YOU WIN!!!");
+    } else {
+        console.log("Final Score:\nComputer: " + computerScore +"\nPlayer: " + humanScore +"\nGAME OVER - TIE");
+    }
 }
 
-
-/// FOR TESTING - DELETE ONCE NOT NEEDED
+playGame();
